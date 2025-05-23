@@ -16,6 +16,18 @@ app = Flask(__name__)
 # Your local server URL (you'll need to expose this using ngrok)
 LOCAL_SERVER_URL = "http://your-ngrok-url:8000/detect"
 
+@app.route('/')
+def index():
+    """Root endpoint that returns API status."""
+    return jsonify({
+        "status": "online",
+        "message": "ESP32-CAM Image Forwarding API",
+        "endpoints": {
+            "POST /upload": "Upload and forward images from ESP32-CAM",
+            "GET /health": "Health check endpoint"
+        }
+    }), 200
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint."""
