@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 
-app = Flask(_name)  # ✅ Fixed __name_
+app = Flask(__name__)  # ✅ Fixed __name_
 
 @app.route('/')
 def index():
@@ -29,6 +29,6 @@ def upload_image():
     return jsonify({"message": "Image received successfully"}), 200
 
 # ✅ Fixed _name_ check
-if _name_ == '_main_':
+if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0',port=port)
