@@ -28,7 +28,4 @@ def upload_image():
 
     return jsonify({"message": "Image received successfully"}), 200
 
-# ✅ Fixed _name_ check
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host='0.0.0.0',port=port)
+
