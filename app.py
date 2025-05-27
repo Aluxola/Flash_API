@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+app = Flask(_name) 
 
 @app.route('/')
 def index():
@@ -20,14 +20,15 @@ def upload_image():
     if not image_data:
         return jsonify({"error": "No image data received"}), 400
 
-    print(f"Received image of size: {len(image_data)} bytes")
+    print(f"📸 Received image of size: {len(image_data)} bytes")
 
-    # Save the image to file for verification
+    # Optional: Save the image
     with open("received_image.jpg", "wb") as f:
         f.write(image_data)
 
     return jsonify({"message": "Image received successfully"}), 200
 
-if __name__ == '__main__':
+
+if _name_ == '_main_':
     port = int(os.environ.get("PORT", 10000))
-    app.run(host='0.0.0.0', port=port) 
+    app.run(host='0.0.0.0', port=port)
